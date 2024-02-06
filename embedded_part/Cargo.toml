@@ -33,6 +33,9 @@ portable-atomic = { version = "1.6.0", features = ["critical-section"] }
 rand = { version = "0.8.5", default-features = false }
 static_cell = {version = "2.0.0", features = ["nightly"]}
 
+[build-dependencies]
+yew_part = {path = "../yew_part", artifact = "bin", target = "wasm32-unknown-unknown"}
+
 [profile.release]
 lto = true
 opt-level = "s"
