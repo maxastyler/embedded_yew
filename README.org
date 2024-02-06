@@ -1,4 +1,9 @@
-*
+*  Embedded Yew
+
+Testing out running a Yew app from a raspberry pi pico
+
+Make sure you have =trunk= and =elf2uf2-rs=
+
 Run by going into embedded_part's folder, and using the command
 #+BEGIN_SRC 
 cargo run --release --target thumbv6m-none-eabi
