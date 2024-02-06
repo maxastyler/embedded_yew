@@ -1,6 +1,3 @@
-[build]
-# Set the default target to match the Cortex-M0+ in the RP2040
-target = "thumbv6m-none-eabi"
 
 # Target specific options
 [target.thumbv6m-none-eabi]
@@ -16,12 +13,12 @@ target = "thumbv6m-none-eabi"
 # * no-vectorize-loops turns off the loop vectorizer (seeing as the M0+ doesn't
 #   have SIMD)
 rustflags = [
-    "-C", "link-arg=--nmagic",
-    "-C", "link-arg=-Tlink.x",
-    "-C", "link-arg=-Tlink-rp.x",
-    "-C", "link-arg=-Tdefmt.x",
+    # "-C", "link-arg=--nmagic",
+    # "-C", "link-arg=-Tlink.x",
+    # "-C", "link-arg=-Tlink-rp.x",
+    # "-C", "link-arg=-Tdefmt.x",
     "-C", "inline-threshold=5",
-    "-C", "no-vectorize-loops",
+    # "-C", "no-vectorize-loops",
 ]
 
 # This runner will find a supported SWD debug probe and flash your RP2040 over
