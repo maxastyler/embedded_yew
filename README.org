@@ -1,2 +1,5 @@
 *
-Run by going into embedded_part's folder, and 
+Run by going into embedded_part's folder, and using the command
+#+BEGIN_SRC 
+cargo run --release --target thumbv6m-none-eabi
+#+END_SRC
