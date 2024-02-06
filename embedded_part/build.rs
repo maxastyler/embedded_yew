@@ -3,12 +3,10 @@ use std::{path::Path, process::Command};
 fn main() {
     let current_dir = std::env::current_dir().expect("Couldn't get current directory");
 
-    let dir_offset = "../yew_part"; // update to your directory
+    let dir_offset = "yew_part"; // update to your directory
     let yew_dir = current_dir.join(dir_offset).canonicalize().expect("Couldn't get path of web component");
-    assert!(yew_dir.is_dir());
-    // println!("cargo:rerun-if-changed={}", yew_dir.display());
-    // don't write into the targets directory for now - figure that out later
-    // let out_dir = env::var_os("OUT_DIR").unwrap();
+
+    println!("cargo:rerun-if-changed={}", yew_dir.display());
 
     let output = Command::new("trunk")
         .current_dir(yew_dir.clone())
@@ -52,5 +50,5 @@ fn main() {
     println!("cargo:rustc-link-arg=--nmagic");
     println!("cargo:rustc-link-arg=-Tlink.x");
     println!("cargo:rustc-link-arg=-Tlink-rp.x");
-    println!("cargo:rustc-link-arg=-Tdefmt.x");        
+    println!("cargo:rustc-link-arg=-Tdefmt.x");
 }
