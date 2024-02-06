@@ -6,7 +6,10 @@ fn main() {
     let dir_offset = "yew_part"; // update to your directory
     let yew_dir = current_dir.join(dir_offset).canonicalize().expect("Couldn't get path of web component");
 
-    println!("cargo:rerun-if-changed={}", yew_dir.display());
+    println!("cargo:rerun-if-changed={}", yew_dir.join("Cargo.toml").display());
+    println!("cargo:rerun-if-changed={}", yew_dir.join("src").display());
+    println!("cargo:rerun-if-changed={}", yew_dir.join("Trunk.toml").display());
+    println!("cargo:rerun-if-changed={}", yew_dir.join("index.html").display());
 
     let output = Command::new("trunk")
         .current_dir(yew_dir.clone())
